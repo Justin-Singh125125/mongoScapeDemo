@@ -5,8 +5,8 @@
 	"main": "index.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"install": "cd client && npm install",
-		"start:dev": "concurrently \"nodemon server\" \"cd client && npm start\""
+		"install": "cd ../client && npm install",
+		"start:dev": "concurrently \"nodemon server\" \"cd ../client && npm start\""
 	},
 	"repository": {
 		"type": "git",
