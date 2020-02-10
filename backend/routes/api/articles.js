@@ -1,12 +1,8 @@
-var router = require('express').Router();
-var fetchRoutes = require('./fetch');
-var noteRoutes = require('./notes');
-var headlineRoutes = require('./headlines');
-var clearRoutes = require('./clear');
+var app = require('express').Router();
+const articlesController = require('../../controllers/articlesController');
 
-router.use('/fetch', fetchRoutes);
-router.use('/notes', noteRoutes);
-router.use('/headlines', headlineRoutes);
-router.use('/clear', clearRoutes);
-
-module.exports = router;
+app
+	.route('/')
+	.get(articlesController.findAllArticles)
+	.post(articlesController.createArticles);
+module.exports = app;
