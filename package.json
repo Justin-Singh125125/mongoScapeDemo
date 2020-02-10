@@ -1,25 +1,28 @@
 {
-  "name": "mongoScapeDemo",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Justin-Singh125125/mongoScapeDemo.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Justin-Singh125125/mongoScapeDemo/issues"
-  },
-  "homepage": "https://github.com/Justin-Singh125125/mongoScapeDemo#readme",
-  "dependencies": {
-    "axios": "^0.19.2",
-    "cheerio": "^1.0.0-rc.3",
-    "express": "^4.17.1"
-  }
+	"name": "mongoScapeDemo",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"install": "cd client && npm install",
+		"start:dev": "npm start && cd client && npm start"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Justin-Singh125125/mongoScapeDemo.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/Justin-Singh125125/mongoScapeDemo/issues"
+	},
+	"homepage": "https://github.com/Justin-Singh125125/mongoScapeDemo#readme",
+	"dependencies": {
+		"axios": "^0.19.2",
+		"cheerio": "^1.0.0-rc.3",
+		"express": "^4.17.1",
+		"mongoose": "^5.8.11"
+	}
 }

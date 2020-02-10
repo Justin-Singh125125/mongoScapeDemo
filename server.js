@@ -1,32 +1,24 @@
-const cheerio = require('cheerio');
-const axios = require("axios");
+const express = require('express');
+const mongoose = require('mongoose');
 
+const scrapeScript = require('./scripts/scrape');
 
-axios.get("https://www.usatoday.com/tech/").then((result) => {
-    const $ = cheerio.load(result.data);
+var PORT = process.env.PORT || 3001;
 
-    const articles = [];
+// Instantiate our Express App
+var app = express();
 
-    const articleSection = $("div.gnt_m:nth-child(2)");
+// Parse request body as JSON
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
-    $(articleSection).find(".gnt_m_flm_a").each((i, currentArticle) => {
-        const articleObj = {};
+// If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
+var MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/mongoHeadlines';
 
+// Connect to the Mongo DB
+mongoose.connect(MONGODB_URI);
 
-        articleObj.heading = $(currentArticle).text().trim();
-        articleObj.info = $(currentArticle).attr("data-c-br")
-        articleObj.link = `https://www.usatoday.com${$(currentArticle).attr("href")}`
-
-
-        if (articleObj.heading && articleObj.info) {
-
-            articles.push(articleObj);
-        }
-
-    })
-
-
-    console.log(articles);
-})
-
-
+// Listen on the port
+app.listen(PORT, function() {
+	console.log('Listening on port: ' + PORT);
+});
