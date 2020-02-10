@@ -11,11 +11,11 @@ import Typography from '@material-ui/core/Typography';
 const useStyles = makeStyles({
     root: {
         maxWidth: "100%",
-        marginBottom: "2rem"
+        marginBottom: "rem"
     },
 });
 
-const NewsCard = () => {
+const NewsCard = (props) => {
     const classes = useStyles();
 
     return (
@@ -24,12 +24,11 @@ const NewsCard = () => {
 
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="h2">
-                        Lizard
-          </Typography>
+                        {props.heading}
+                    </Typography>
                     <Typography variant="body2" color="textSecondary" component="p">
-                        Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-                        across all continents except Antarctica
-          </Typography>
+                        {props.info}
+                    </Typography>
                 </CardContent>
             </CardActionArea>
             <CardActions>

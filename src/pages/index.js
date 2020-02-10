@@ -8,13 +8,13 @@ import {
 
 
 
-import { makeStyles } from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Card from "../components/Card";
-import Navbar from "../components/Navbar";
+import NoArticles from "../components/NoArticles";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = theme => ({
     root: {
         flexGrow: 1,
         padding: "2rem"
@@ -24,21 +24,57 @@ const useStyles = makeStyles(theme => ({
         textAlign: 'center',
         color: theme.palette.text.secondary,
     },
-}));
+});
 
-export default function CenteredGrid() {
-    const classes = useStyles();
-    console.log(window.location.pathname)
+class Index extends React.Component {
 
-    return (
-        <div className={classes.root}>
-            <Grid container spacing={3}>
-                <Grid item xs={12}>
-                    <Card />
+    state = {
+        articles: [
+
+            {
+                heading: "test",
+                info: "lorem ipsum",
+                link: ""
+            },
+            {
+                heading: "test",
+                info: "lorem ipsum",
+                link: ""
+            },
+
+
+        ]
+    }
+
+    render() {
+
+        const { classes } = this.props
+
+        return (
+            <div className={classes.root} >
+                <Grid container spacing={3}>
+
+                    {this.state.articles.length === 0 ?
+                        <NoArticles text="YOU HAVE NO ARTICLES! GO SCRAPE!" />
+                        :
+                        <>
+                            {this.state.articles.map((a) => (
+                                <Grid item xs={12}>
+                                    <Card
+                                        heading={a.heading}
+                                        info={a.info}
+                                    />
+                                </Grid>
+                            ))}
+                        </>
+                    }
+
+
                 </Grid>
+            </div>
 
-            </Grid>
-        </div>
-
-    );
+        );
+    }
 }
+
+export default withStyles(useStyles)(Index);

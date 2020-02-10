@@ -1,20 +1,11 @@
-import React from 'react';
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link
-} from "react-router-dom";
+import React from "react";
 
+import { withStyles } from '@material-ui/core/styles';
 
-
-import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import Card from "../components/Card";
-import Navbar from "../components/Navbar";
+import NoArticles from "../components/NoArticles";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = theme => ({
     root: {
         flexGrow: 1,
         padding: "2rem"
@@ -24,16 +15,26 @@ const useStyles = makeStyles(theme => ({
         textAlign: 'center',
         color: theme.palette.text.secondary,
     },
-}));
+});
 
-export default function CenteredGrid() {
-    const classes = useStyles();
+class Saved extends React.Component {
 
 
-    return (
-        <div className={classes.root}>
-            <p>WERE ARE ON SAVE PAGE</p>
-        </div>
+    render() {
 
-    );
+        const { classes } = this.props
+        return (
+            <div className={classes.root}>
+                <Grid container spacing={3}>
+                    <Grid item xs={12}>
+                        <NoArticles text="YOU HAVE NO ARTICLES SAVED! WHAT ARE YOU DOING?" />
+                    </Grid>
+
+
+                </Grid>
+            </ div>
+        )
+    }
 }
+
+export default withStyles(useStyles)(Saved);
