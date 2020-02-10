@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import axios from 'axios';
+
 import { fade, makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -77,8 +79,6 @@ const Navbar = props => {
 	// Declare a new state variable, which we'll call "count"
 	const [currentPage, setCurrentPage] = useState(window.location.pathname);
 
-	console.log('current page: ', currentPage);
-
 	const classes = useStyles();
 	const [anchorEl, setAnchorEl] = React.useState(null);
 	const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -151,7 +151,9 @@ const Navbar = props => {
 					<div className={classes.sectionDesktop}>
 						{currentPage === '/' ? (
 							<>
-								<Button color='inherit'>Scrape</Button>
+								<Button onClick={props.handleScrapeArticles} color='inherit'>
+									Scrape
+								</Button>
 								<Button onClick={() => setCurrentPage('/saved')} component={Link} to='/saved' color='inherit'>
 									Saved Articles
 								</Button>
