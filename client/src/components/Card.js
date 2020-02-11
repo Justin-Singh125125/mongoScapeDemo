@@ -43,7 +43,7 @@ const NewsCard = props => {
 						</Link>
 					</CardActionArea>
 					<CardActions>
-						<Button size='small' color='primary'>
+						<Button onClick={()=>{console.log("test")}} size='small' color='primary'>
 							Save
 						</Button>
 

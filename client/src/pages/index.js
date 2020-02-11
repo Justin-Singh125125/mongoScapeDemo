@@ -42,6 +42,8 @@ const Index = props => {
 	}, [selectedArticle]);
 
 	const handleSelectArticle =  (selectedArticle) => {
+		setUserComment("");
+		setAllComments([]);
 		setSelectedArticle(selectedArticle);
 	}
 	const handleRemoveArticle = () => {
@@ -59,7 +61,7 @@ const Index = props => {
 		commentObj.comment = userComment;
 		commentObj.articleId = selectedArticle._id
 		await axios.post("/api/comments", commentObj)
-		handleGetComments();
+		handleGetComments(selectedArticle._id);
 	}
 
 	const handleInputChange = (e)=>{
