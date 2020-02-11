@@ -22,14 +22,11 @@ const useStyles = makeStyles({
 
 const NewsCard = props => {
 	const classes = useStyles();
-
-
-
 	return (
 
 		<>
 			{props.isComment !== true ?
-				<Card onClick={() => props.handleSelectArticle(props.obj)} className={classes.root}>
+				<Card  className={classes.root}>
 					<CardActionArea>
 						<Link href={props.link} underline={'none'} target='_blank'>
 							<CardContent>
@@ -43,12 +40,12 @@ const NewsCard = props => {
 						</Link>
 					</CardActionArea>
 					<CardActions>
-						<Button onClick={()=>{console.log("test")}} size='small' color='primary'>
+						<Button onClick={()=>props.handleSaveArticle(props.articleObj._id)} size='small' color='primary'>
 							Save
 						</Button>
 
 
-						<Button size='small' color='primary'>
+						<Button onClick={() => props.handleSelectArticle(props.articleObj)} size='small' color='primary'>
 							Comment
 						</Button>
 

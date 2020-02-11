@@ -6,7 +6,11 @@ var Schema = mongoose.Schema;
 var articleSchema = new Schema({
 	heading: String,
 	info: String,
-	link: String
+	link: String,
+	isSaved: {
+		type: Boolean,
+		default:  false
+	}
 });
 
 // Create the Note model using the noteSchema

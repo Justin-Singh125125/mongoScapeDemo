@@ -41,7 +41,9 @@ const Index = props => {
 	
 	}, [selectedArticle]);
 
-	const handleSelectArticle =  (selectedArticle) => {
+	const handleSelectArticle = (selectedArticle) => {
+		console.log(selectedArticle)
+
 		setUserComment("");
 		setAllComments([]);
 		setSelectedArticle(selectedArticle);
@@ -68,6 +70,12 @@ const Index = props => {
 		setUserComment(e.target.value);
 	}
 
+	const handleSaveArticle = async (articleId)=>{
+		const savedArticle= await axios.put(`/api/articles/${articleId}`);
+
+		props.handleGetArticles();
+	}
+
 
 	return (
 		<div className={classes.root}>
@@ -87,11 +95,12 @@ const Index = props => {
 											<Card
 
 												key={a._id}
+												articleObj={a}
+												link={a.link}
 												heading={a.heading}
 												info={a.info}
-												link={a.link}
-												obj={a}
 												handleSelectArticle={handleSelectArticle}
+												handleSaveArticle={handleSaveArticle}
 											/>
 										</Grid>
 									))}

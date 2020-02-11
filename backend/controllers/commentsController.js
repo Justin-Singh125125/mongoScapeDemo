@@ -11,8 +11,6 @@ module.exports = {
        const resultComments = await db.Comments.find();
        res.json(resultComments);
     },
-  
-    
     createComment: async (req,res)=>{
         const createComment = await db.Comments.create(req.body);
         res.json(createComment);
