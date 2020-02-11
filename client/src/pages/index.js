@@ -23,9 +23,6 @@ const useStyles = makeStyles(theme => ({
 const Index = props => {
 	const classes = useStyles();
 
-	useEffect(() => {
-		props.handleGetArticles();
-	});
 	return (
 		<div className={classes.root}>
 			<Grid container spacing={3}>

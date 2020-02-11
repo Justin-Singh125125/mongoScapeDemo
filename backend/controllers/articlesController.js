@@ -7,6 +7,7 @@ module.exports = {
 		res.json(resultArticles);
 	},
 	createArticles: async (req, res) => {
+		await db.Articles.deleteMany();
 		const scrapeData = await scrapeScript();
 
 		const resultArticles = await db.Articles.insertMany(scrapeData);
