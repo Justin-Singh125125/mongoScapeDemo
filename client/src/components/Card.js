@@ -60,7 +60,7 @@ const NewsCard = props => {
 
 					<CardContent>
 						<Typography gutterBottom variant='h5' component='h2'>
-							{props.heading}
+							{props.comment}
 						</Typography>
 					</CardContent>
 				</Card>

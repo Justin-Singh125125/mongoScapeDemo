@@ -16,7 +16,7 @@ const Form = (props) => {
 
     return (
         <form className={classes.root} noValidate autoComplete="off">
-            <TextField id="standard-basic" label={props.label} />
+            <TextField onChange={props.handleInputChange} name="comment-field" value={props.userComment} id="standard-basic" label={props.label} />
 
         </form>
     );

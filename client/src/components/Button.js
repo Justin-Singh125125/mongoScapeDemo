@@ -18,12 +18,18 @@ export default function ContainedButtons(props) {
     const classes = useStyles();
 
     return (
-
-
+        <>
+        {props.color==="primary"?
+        <Button onClick={props.handleCreateComment} className={classes.button} variant="contained" color={props.color}>
+        {props.text}
+    </Button>
+  :
         <Button onClick={props.handleRemoveArticle} className={classes.button} variant="contained" color={props.color}>
             {props.text}
         </Button>
 
+}
+        </>
 
     );
 }
