@@ -4,7 +4,12 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"heroku-prebuild": "cd ./backend && npm start"
+		"start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+		"start:dev": "concurrently \"nodemon server\" \"cd ./client && npm start\"",
+		"start:prod": "nodemon server.js",
+		"install": "cd client && npm install",
+		"build": "cd client && npm run build",
+		"heroku-postbuild": "npm run build"
 	},
 	"repository": {
 		"type": "git",
@@ -16,5 +21,15 @@
 	"bugs": {
 		"url": "https://github.com/Justin-Singh125125/mongoScapeDemo/issues"
 	},
-	"homepage": "https://github.com/Justin-Singh125125/mongoScapeDemo#readme"
+	"homepage": "https://github.com/Justin-Singh125125/mongoScapeDemo#readme",
+	"dependencies": {
+		"axios": "^0.19.2",
+		"cheerio": "^1.0.0-rc.3",
+		"concurrently": "^5.1.0",
+		"dotenv": "^8.2.0",
+		"express": "^4.17.1",
+		"if-env": "^1.0.4",
+		"mongoose": "^5.8.11",
+		"nodemon": "^2.0.2"
+	}
 }
