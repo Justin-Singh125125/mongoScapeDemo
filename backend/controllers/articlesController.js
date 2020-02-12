@@ -10,6 +10,10 @@ module.exports = {
 		const resultArticles = await db.Articles.find({isSaved: true});
 		res.json(resultArticles);
 	},
+	findOneArticle: async (req, res) => {
+		const resultArticles = await db.Articles.find({_id: req.params.articleId}).populate("comments");
+		res.json(resultArticles);
+	},
 	createArticles: async (req, res) => {
 		await db.Articles.deleteMany();
 		const scrapeData = await scrapeScript();

@@ -9,6 +9,7 @@ app
 
 
 app.route("/:articleId")
+	.get(articlesController.findOneArticle)
 	.put(articlesController.saveArticle);
 
 app.route('/saved')

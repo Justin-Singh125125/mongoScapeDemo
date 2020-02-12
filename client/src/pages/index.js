@@ -62,6 +62,7 @@ const Index = props => {
 		const commentObj={};
 		commentObj.comment = userComment;
 		commentObj.articleId = selectedArticle._id
+		
 		await axios.post("/api/comments", commentObj)
 		handleGetComments(selectedArticle._id);
 	}

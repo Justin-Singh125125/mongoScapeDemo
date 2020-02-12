@@ -13,6 +13,12 @@ module.exports = {
     },
     createComment: async (req,res)=>{
         const createComment = await db.Comments.create(req.body);
+        console.log(req.body.articleId)
+
+        const where = {_id: req.body.articleId};
+        const updateData={ $push: {comments: createComment._id}}
+
+        await db.Articles.findOneAndUpdate(where,updateData);
         res.json(createComment);
     },
 

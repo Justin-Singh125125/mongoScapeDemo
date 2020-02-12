@@ -25,7 +25,6 @@ const App = () => {
 	const handleGetArticles = async () => {
 		const resultsArticle = await axios.get('/api/articles');
 		setArticles(resultsArticle.data);
-		console.log('getting articles');
 	};
 	return (
 		<Router>

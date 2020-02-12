@@ -10,7 +10,13 @@ var articleSchema = new Schema({
 	isSaved: {
 		type: Boolean,
 		default:  false
-	}
+	},
+	comments: [
+		{
+			type: Schema.Types.ObjectId,
+			ref: "Comments"
+		}
+	]
 });
 
 // Create the Note model using the noteSchema
