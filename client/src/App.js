@@ -18,11 +18,11 @@ const App = () => {
 	}, []);
 
 	const handleScrapeArticles = async () => {
-		const resultsArticle = await axios.post('/api/articles');
+		const resultsArticle = await axios.post('https://mongo-scrape-demo1.herokuapp.com/api/articles');
 		setArticles(resultsArticle.data);
 	};
 	const handleGetArticles = async () => {
-		const resultsArticle = await axios.get('/api/articles');
+		const resultsArticle = await axios.get('https://mongo-scrape-demo1.herokuapp.com/api/articles');
 		setArticles(resultsArticle.data);
 	};
 	return (
