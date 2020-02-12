@@ -11,16 +11,15 @@ import Saved from './pages/saved';
 const App = () => {
 	//we pass the array parameter a the end so this use effect does not run
 	//more than one
+	const [articles, setArticles] = useState([]);
+
 	useEffect(() => {
 		handleGetArticles();
 	}, []);
 
-	const [articles, setArticles] = useState([]);
-
 	const handleScrapeArticles = async () => {
 		const resultsArticle = await axios.post('/api/articles');
 		setArticles(resultsArticle.data);
-		console.log('scraping articles');
 	};
 	const handleGetArticles = async () => {
 		const resultsArticle = await axios.get('/api/articles');

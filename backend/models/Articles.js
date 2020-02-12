@@ -9,12 +9,12 @@ var articleSchema = new Schema({
 	link: String,
 	isSaved: {
 		type: Boolean,
-		default:  false
+		default: false
 	},
 	comments: [
 		{
 			type: Schema.Types.ObjectId,
-			ref: "Comments"
+			ref: 'Comments'
 		}
 	]
 });

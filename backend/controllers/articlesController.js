@@ -3,15 +3,15 @@ const scrapeScript = require('../scripts/scrape');
 
 module.exports = {
 	findAllArticles: async (req, res) => {
-		const resultArticles = await db.Articles.find({isSaved: false});
+		const resultArticles = await db.Articles.find({ isSaved: false });
 		res.json(resultArticles);
 	},
 	findAllSavedArticles: async (req, res) => {
-		const resultArticles = await db.Articles.find({isSaved: true});
+		const resultArticles = await db.Articles.find({ isSaved: true });
 		res.json(resultArticles);
 	},
 	findOneArticle: async (req, res) => {
-		const resultArticles = await db.Articles.find({_id: req.params.articleId}).populate("comments");
+		const resultArticles = await db.Articles.find({ _id: req.params.articleId }).populate('comments');
 		res.json(resultArticles);
 	},
 	createArticles: async (req, res) => {
@@ -23,15 +23,14 @@ module.exports = {
 		res.json(resultArticles);
 	},
 	saveArticle: async (req, res) => {
-			const updatedArticle =	await db.Articles.updateOne(
+		const updatedArticle = await db.Articles.updateOne(
 			{
 				_id: req.params.articleId
 			},
 			{
 				isSaved: true
-			})
-
+			}
+		);
 		res.json(updatedArticle);
-	},
-
+	}
 };
