@@ -49,7 +49,7 @@ const Index = props => {
 	};
 
 	const handleGetComments = async articleId => {
-		const resultsComments = await axios.get(`https://mongo-scrape-demo1.herokuapp.com/api/comments/${articleId}`);
+		const resultsComments = await axios.get(`/api/comments/${articleId}`);
 		setAllComments(resultsComments.data);
 	};
 
@@ -67,7 +67,7 @@ const Index = props => {
 	};
 
 	const handleSaveArticle = async articleId => {
-		const savedArticle = await axios.put(`https://mongo-scrape-demo1.herokuapp.com/api/articles/${articleId}`);
+		const savedArticle = await axios.put(`/api/articles/${articleId}`);
 
 		props.handleGetArticles();
 	};

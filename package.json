@@ -1,0 +1,20 @@
+{
+	"name": "mongoScapeDemo",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"heroku-prebuild": "cd backend"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Justin-Singh125125/mongoScapeDemo.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/Justin-Singh125125/mongoScapeDemo/issues"
+	},
+	"homepage": "https://github.com/Justin-Singh125125/mongoScapeDemo#readme"
+}

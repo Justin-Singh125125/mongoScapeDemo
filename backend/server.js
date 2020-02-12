@@ -1,4 +1,4 @@
-require('dotenv').config()
+require('dotenv').config();
 
 const express = require('express');
 const mongoose = require('mongoose');
@@ -13,6 +13,10 @@ var app = express();
 // Parse request body as JSON
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+if (process.env.NODE_ENV === 'production') {
+	app.use(express.static('../client/build'));
+}
 
 app.use(routes);
 
