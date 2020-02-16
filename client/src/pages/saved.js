@@ -27,7 +27,7 @@ const Saved = () => {
 	}, []);
 
 	const handleGetSavedArticles = async () => {
-		const saved = await axios.get('/api/articles/saved');
+		const saved = await axios.get('https://test125125.herokuapp.com/api/articles/saved');
 		setSavedArticles(saved.data);
 	};
 
